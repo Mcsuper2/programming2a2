@@ -28,11 +28,15 @@ if response4 == "English" or response4 == "english":
 else:
     print(f"{name}, sorry, you are incorrect")
 response5 = input("Last question. What is the meaning of life, the universe, and everything?")
-if response5 == "42" or "forty-two" or "forty two":
+if response5 == "42" or response5 == "forty-two" or response5 == "forty two":
     print(f"{name}, you are correct!")
     score += 1
 else:
     print(f"{name}, sorry, you are incorrect")
-print(score/5)
+print(score)
 per = score/5 * 100
-print(f"You got {per}%!")
+print(f"{name}, you got {per}%!")
+if score >= 3:
+    print("That's a good score!")
+else:
+    print("This quiz was hard, better luck next time!")
