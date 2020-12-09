@@ -1,17 +1,23 @@
 # Quiz.py
+
 score = 0
 print("Welcome to the quiz!")
 name = input("What's your name?")
+
 # Ask Question
+
 print(f"Hello {name}! What is 109 + 1299?")
+
 # Get their answer
 response1 = input()
+
 # See if they're right
 if response1 == "1408":
     print(f"{name}, you are correct!")
     score += 1
 else:
     print(f"{name}, sorry, you are incorrect")
+
 # Repeat question asking process for questions 2 to 5
 response2 = input("Question 2. Where is the Oort cloud? A: In the brain  B: At the North Pole  C: At the edge of the solar system  D: In cyberspace")
 if response2 == "C" or response2 == "c":
@@ -37,6 +43,8 @@ if response5 == "42" or response5 == "forty-two" or response5 == "forty two":
     score += 1
 else:
     print(f"{name}, sorry, you are incorrect")
+
+# Give the user the score they got and a comment
 print(score)
 per = score/5 * 100
 print(f"{name}, you got {per}%!")
