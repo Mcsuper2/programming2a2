@@ -2,13 +2,17 @@
 score = 0
 print("Welcome to the quiz!")
 name = input("What's your name?")
+# Ask Question
 print(f"Hello {name}! What is 109 + 1299?")
+# Get their answer
 response1 = input()
+# See if they're right
 if response1 == "1408":
     print(f"{name}, you are correct!")
     score += 1
 else:
     print(f"{name}, sorry, you are incorrect")
+# Repeat question asking process for questions 2 to 5
 response2 = input("Question 2. Where is the Oort cloud? A: In the brain  B: At the North Pole  C: At the edge of the solar system  D: In cyberspace")
 if response2 == "C" or response2 == "c":
     print(f"{name}, you are correct!")
@@ -36,7 +40,11 @@ else:
 print(score)
 per = score/5 * 100
 print(f"{name}, you got {per}%!")
-if score >= 3:
+if score == 3 or score == 4:
     print("That's a good score!")
+elif score == 5:
+    print("Perfect, you know your stuff! You better not have googled these...")
+elif score == 0:
+    print("Um, were you even trying? You should have gotten at least 1 right...")
 else:
     print("This quiz was hard, better luck next time!")
