@@ -4,10 +4,18 @@
 
 import webbrowser
 import sys
+import pyperclip
 
-address = " ".join(sys.argv[1:])
+# If there are no arguments
+# grab address from the clipboard
+if len(sys.argv) < 2:
+    address = pyperclip.paste()
 
+else:
+    address = " ".join(sys.argv[1:])
+
+print(f"Finding {address}...")
 prefix = "https://google.com/maps/place/"
 webbrowser.open(prefix+address)
 
-# TODO: add feature to grab address from clipboard
+
