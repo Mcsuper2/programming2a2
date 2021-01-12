@@ -19,7 +19,7 @@ HEIGHT = 600
 TITLE = "DVD Image"
 
 
-class Block():
+class Block:
     def __init__(self):
         # initial loc in the middle
         self.x, self.y = (WIDTH/2, HEIGHT/2)
@@ -42,6 +42,25 @@ class Block():
             self.x_vel *= -1
         if self.y < 0 or self.y + self.height > HEIGHT:
             self.y_vel *= -1
+
+    def draw(self, screen):
+        """draws this block on the screen
+        arguments:
+            screen = surface we draw on
+
+        returns:
+            none
+        """
+        pygame.draw.rect(
+            screen,
+            self.colour,
+            [
+                self.x,
+                self.y,
+                self.width,
+                self.height,
+            ]
+        )
 
 
 def main():
@@ -76,26 +95,12 @@ def main():
         # ----- DRAW
         screen.fill(BLACK)
 
-        pygame.draw.rect(
-            screen,
-            block.colour,
-            [
-                block.x,
-                block.y,
-                block.width,
-                block.height,
-            ]
-        )
-        pygame.draw.rect(
-            screen,
-            secondblock.colour,
-            [
-                secondblock.x,
-                secondblock.y,
-                secondblock.width,
-                secondblock.height,
-            ]
-        )
+        # Draw method
+        # input is screen
+        # pygame.draw.rect()
+
+        block.draw(screen)
+        secondblock.draw(screen)
 
         # ----- UPDATE
         pygame.display.flip()
