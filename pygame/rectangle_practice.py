@@ -22,6 +22,16 @@ class Rectangle():
 
         self.colour = (0, 255, 0)
 
+class Rectangle2():
+    def __init__(self):
+        self.x = 50
+        self.y = 50
+
+        self.width = 15
+        self.height = 15
+
+        self.colour = (0, 0, 255)
+
 def main():
     pygame.init()
 
@@ -35,6 +45,7 @@ def main():
     clock = pygame.time.Clock()
 
     rectangle = Rectangle()
+    rectangle2 = Rectangle2()
 
     # ----- MAIN LOOP
     while not done:
@@ -48,7 +59,8 @@ def main():
         # ----- DRAW
         screen.fill(BLACK)
         pygame.draw.rect(screen, rectangle.colour, (rectangle.x, rectangle.y, rectangle.width, rectangle.height))
-
+        pygame.draw.rect(screen, rectangle2.colour, (rectangle2.x, rectangle2.y, rectangle2.width, rectangle2.height))
+        pygame.draw.circle(screen, (0, 255, 0), (100, 100), 50)
         # ----- UPDATE
         pygame.display.flip()
         clock.tick(60)
