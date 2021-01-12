@@ -7,6 +7,7 @@
 #        the dvd logo (like the Office Segment)
 
 import pygame
+import random
 
 # ----- CONSTANTS
 BLACK = (0, 0, 0)
@@ -56,6 +57,10 @@ def main():
     clock = pygame.time.Clock()
 
     block = Block()
+    secondblock = Block()
+    secondblock.colour = WHITE
+    secondblock.y_vel = random.choice([-4, -2, 2, 4])
+    secondblock.x_vel = random.choice([-4, -2, 2, 4])
 
     # ----- MAIN LOOP
     while not done:
@@ -65,7 +70,8 @@ def main():
                 done = True
 
         # ----- LOGIC
-        block.update() # update the block's location
+        block.update()  # update the block's location
+        secondblock.update()
 
         # ----- DRAW
         screen.fill(BLACK)
@@ -78,6 +84,16 @@ def main():
                 block.y,
                 block.width,
                 block.height,
+            ]
+        )
+        pygame.draw.rect(
+            screen,
+            secondblock.colour,
+            [
+                secondblock.x,
+                secondblock.y,
+                secondblock.width,
+                secondblock.height,
             ]
         )
 
